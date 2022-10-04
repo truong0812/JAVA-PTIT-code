@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 
-public class sxmatran {
+public class J07076 {
     public static void main(String[] args) throws FileNotFoundException {
         Scanner in = new Scanner(new File("MATRIX.in"));
         int t = Integer.parseInt(in.nextLine());
