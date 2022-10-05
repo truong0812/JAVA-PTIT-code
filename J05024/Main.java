@@ -3,20 +3,29 @@ package J05024;
 import java.util.*;
 
 public class Main {
-    public static void main(String []args){
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        ArrayList<SinhVien> ds = new ArrayList<>();
-        int t = sc.nextInt(); sc.nextLine();
-        while(t-->0){        
-            ds.add(new SinhVien(sc.nextLine(),sc.nextLine(),sc.nextLine(),sc.nextLine()));
+        int n = sc.nextInt();
+        ArrayList <SinhVien> list = new ArrayList<>();
+        while(n-- > 0){
+            String maSV = sc.next();
+            sc.nextLine();
+            String hoTen = sc.nextLine();
+            String lop = sc.nextLine();
+            String email = sc.nextLine();
+            list.add(new SinhVien(maSV, hoTen, lop, email));
         }
-        int q = sc.nextInt(); sc.nextLine();
-        while(q-->0){
-            String industry = sc.nextLine();
-            System.out.printf("DANH SACH SINH VIEN NGANH %s:\n",industry.toUpperCase());
-            for(SinhVien tmp : ds)
-                if(tmp.getIndustry().equals(industry))
-                    System.out.println(tmp);
+        int q = sc.nextInt();
+        sc.nextLine();
+        while(q-- > 0){
+            String nganhCanTim = sc.nextLine();
+            nganhCanTim = nganhCanTim.toUpperCase();
+            System.out.println("DANH SACH SINH VIEN NGANH " + nganhCanTim + ":");
+            for(SinhVien x : list){
+                if(x.nganhHoc().equals(nganhCanTim)){
+                    System.out.println(x);
+                }
+            }
         }
     }
 }

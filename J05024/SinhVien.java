@@ -1,25 +1,30 @@
 package J05024;
 
 public class SinhVien {
-    private String id,name,clas,email;
+    private String maSV, hoTen, lop, email;
 
-    public SinhVien(String id, String name, String clas, String email) {
-        this.id = id;
-        this.name = name;
-        this.clas = clas;
+    public SinhVien(String maSV, String hoTen, String lop, String email) {
+        this.maSV = maSV;
+        this.hoTen = hoTen;
+        this.lop = lop;
         this.email = email;
-    }    
-    public String getIndustry(){
-        if(id.contains("DCKT"))  return "Ke toan";
-        if(id.contains("DCVT"))  return "Vien thong";
-        if(id.contains("DCDT"))  return "Dien tu";
-        if(id.contains("DCCN") && id.charAt(0) != 'E')  return "Cong nghe thong tin";
-        if(id.contains("DCAT") && id.charAt(0) != 'E')  return "An toan thong tin";
+    }
+    public String nganhHoc(){
+        String tmp = this.maSV.substring(5, 7);
+        if(this.lop.charAt(0) != 'E' && tmp.equals("CN"))
+            return "CONG NGHE THONG TIN";
+        if(tmp.equals("KT"))
+            return "KE TOAN";
+        if(this.lop.charAt(0) != 'E' && tmp.equals("AT"))
+            return "AN TOAN THONG TIN";
+        if(tmp.equals("VT"))
+            return "VIEN THONG";
+        if(tmp.equals("DT"))
+            return "DIEN TU";
         return "";
     }
-    
     @Override
     public String toString(){
-        return this.id+' '+this.name+' '+this.clas+' '+this.email;
+        return this.maSV + " " + this.hoTen + " " + this.lop + " " + this.email; 
     }
 }
