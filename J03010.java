@@ -1,7 +1,8 @@
+import java.io.File;
 import java.util.*;
 
 public class J03010 {
-    static Scanner sc = new Scanner(System.in);
+    static Scanner sc = new Scanner(new File(null));
     static HashMap<String, Integer> myMap = new HashMap<>();
 
     static void Solve() {
@@ -35,8 +36,7 @@ public class J03010 {
     }
 
     public static void main(String[] args) throws Exception {
-        int t = Integer.parseInt(sc.nextLine());
-        while (t-- > 0)
+        while (sc.hasNextLine())
             Solve();
     }
 }
